@@ -1,0 +1,45 @@
+<div class="col-lg-10">
+    <h3>{{pageTittle}}</h3>
+    <hr>
+    <div class="alert alert-success col-md-5 mt-3" *ngIf="status=='success'">
+        El cliente se ha creado correctamente.
+    </div>
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status=='error'">
+        El Cliente no se ha creado.
+    </div>
+    <form #addClient="ngForm" (ngSubmit)="onSubmit(addClient)">
+        <div class="form-group">
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="client.name" required pattern="[a-zA-ZÀ-ÿ ]+" class="form-control" />
+            <small *ngIf="!name.valid && name.touched" class="ivalid-feedback d-block">El nombre no es valido</small>
+        </div>
+        <div class="form-group">
+            <label for="surname">Apellidos</label>
+            <input type="text" name="surname" #surname="ngModel" [(ngModel)]="client.surname" required pattern="[a-zA-ZÀ-ÿ ]+" class="form-control" />
+            <small *ngIf="!surname.valid && surname.touched" class="ivalid-feedback d-block">Los apellidos no son validos</small>
+        </div>
+        <div class="form-group">
+            <label for="identification">Identificación</label>
+            <input type="number" name="identification" #identification="ngModel" [(ngModel)]="client.identification" class="form-control" />
+
+        </div>
+        <div class="form-group">
+            <label for="phone">Teléfono</label>
+            <input type="number" name="phone" #phone="ngModel" [(ngModel)]="client.phone" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="client.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" />
+            <small *ngIf="!email.valid && email.touched" class="ivalid-feedback d-block">El email no es valido</small>
+        </div>
+        <div class="form-group">
+            <label for="address">Dirección</label>
+            <textarea name="address" #address="ngModel" [(ngModel)]="client.address" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="estatus">Estatus</label>
+            <input type="text" name="estatus" #estatus="ngModel" [(ngModel)]="client.status" class="form-control" />
+        </div>
+        <input type="submit" value="{{pageTittle}}" class="btn btn-success" [disabled]="addClient.invalid">
+    </form>
+</div>
