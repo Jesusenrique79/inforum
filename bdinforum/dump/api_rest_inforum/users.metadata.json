@@ -1,0 +1,1 @@
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"api_rest_inforum.users"}],"uuid":"e5a758baa68f4d30a45e15d7d7ab96cb"}
