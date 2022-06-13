@@ -1,11 +1,17 @@
 <div class="col-lg-10">
     <h3>{{pageTittle}}</h3>
     <hr>
-    <div class="alert alert-success col-md-5 mt-3" *ngIf="status=='success'">
+    <div class="alert alert-success col-md-12 mt-3" *ngIf="status=='success' && !is_edit">
         El cliente se ha creado correctamente.
     </div>
-    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status=='error'">
+    <div class="alert alert-danger col-md-12 mt-3" *ngIf="status=='error' && !is_edit">
         El Cliente no se ha creado.
+    </div>
+    <div class="alert alert-success col-md-12 mt-3" *ngIf="status=='success' && is_edit">
+        El cliente se ha actualizado correctamente.
+    </div>
+    <div class="alert alert-danger col-md-12 mt-3" *ngIf="status=='error' && is_edit">
+        El Cliente no se ha actualizado.
     </div>
     <form #addClient="ngForm" (ngSubmit)="onSubmit(addClient)">
         <div class="form-group">

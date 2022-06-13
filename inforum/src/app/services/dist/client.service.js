@@ -23,6 +23,19 @@ var ClientService = /** @class */ (function () {
             .set('Authorization', token);
         return this._http.post(this.url + 'client', params, { headers: headers });
     };
+    ClientService.prototype.geClientsByUser = function (userId) {
+        var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json');
+        return this._http.get(this.url + 'user-clients/' + userId, { headers: headers });
+    };
+    ClientService.prototype.getClient = function (id) {
+        return this._http.get(this.url + 'client/' + id);
+    };
+    ClientService.prototype.update = function (token, id, client) {
+        var params = JSON.stringify(client);
+        var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json')
+            .set('Authorization', token);
+        return this._http.put(this.url + 'clients/' + id, params, { headers: headers });
+    };
     ClientService = __decorate([
         core_1.Injectable()
     ], ClientService);

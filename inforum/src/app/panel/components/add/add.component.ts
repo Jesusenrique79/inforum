@@ -31,10 +31,12 @@ export class AddComponent implements OnInit {
   }
 
   ngOnInit() {
+    
   }
 
    onSubmit(form) {
     console.log(this.client);
+    console.log(this.token);
     this._clientService.addClient(this.token, this.client).subscribe(
       response => {
         if (response.client) {

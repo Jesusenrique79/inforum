@@ -26,11 +26,11 @@ let ClientSchema = Schema({
 
     name: String,
     surname: String,
-    identification: Number,
-    phone: Number,
+    identification: String,
+    phone: String,
     email: String,
     address: String,
-    status: Boolean,
+    status: String,
     date: { type: Date, default: Date.now },
     user: { type: Schema.ObjectId, ref: 'User' },
     multimedia: [multimediaSchema]

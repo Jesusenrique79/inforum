@@ -15,10 +15,11 @@ exports.authenticated = function(req, res, next) {
     }
     //LIMPIAR EL TOKEN Y QUITAR COMILLAS
     let token = req.headers.authorization.replace(/['"]+/g, '');
-
+    console.log(token);
     try {
         //DECODIFICAR EL TOKEN
         payload = jwt.decode(token, secret);
+        console.log(payload);
         //COMPROBAR SI EL TOKEN HA EXPIRADO 
         if (payload.exp <= moment().unix()) {
             return res.status(404).send({

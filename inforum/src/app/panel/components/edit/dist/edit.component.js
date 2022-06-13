@@ -6,50 +6,65 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 exports.__esModule = true;
-exports.AddComponent = void 0;
+exports.EditComponent = void 0;
 var core_1 = require("@angular/core");
 var client_1 = require("../../../../models/client");
 var user_service_1 = require("../../../services/user.service");
 var client_service_1 = require("../../../services/client.service");
-var AddComponent = /** @class */ (function () {
-    function AddComponent(_route, _router, _userService, _clientService) {
+var EditComponent = /** @class */ (function () {
+    function EditComponent(_route, _router, _userService, _clientService) {
         this._route = _route;
         this._router = _router;
         this._userService = _userService;
         this._clientService = _clientService;
-        this.pageTittle = 'Crear un nuevo cliente';
+        this.pageTittle = 'Editar cliente';
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
         this.client = new client_1.Client('', '', '', '', '', '', '', '', '', this.identity._id, null);
+        this.is_edit = true;
     }
-    AddComponent.prototype.ngOnInit = function () {
+    EditComponent.prototype.ngOnInit = function () {
+        this.getClient();
     };
-    AddComponent.prototype.onSubmit = function (form) {
+    EditComponent.prototype.getClient = function () {
         var _this = this;
-        console.log(this.client);
-        console.log(this.token);
-        this._clientService.addClient(this.token, this.client).subscribe(function (response) {
+        this._route.params.subscribe(function (params) {
+            var id = params['id'];
+            _this._clientService.getClient(id).subscribe(function (response) {
+                if (!response.client) {
+                    _this._router.navigate(['/panel']);
+                }
+                else {
+                    _this.client = response.client;
+                }
+            }, function (error) {
+                console.log(error);
+            });
+        });
+    };
+    EditComponent.prototype.onSubmit = function (form) {
+        var _this = this;
+        var id = this.client._id;
+        this._clientService.update(this.token, id, this.client).subscribe(function (response) {
             if (response.client) {
                 _this.status = 'success';
                 _this.client = response.client;
-                _this._router.navigate(['/panel']);
             }
             else {
                 _this.status = 'error';
             }
         }, function (error) {
             _this.status = 'error';
-            console.log(error);
         });
     };
-    AddComponent = __decorate([
+    EditComponent = __decorate([
         core_1.Component({
-            selector: 'app-add',
-            templateUrl: './add.component.html',
-            styleUrls: ['./add.component.css'],
+            selector: 'app-edit',
+            templateUrl: '../add/add.component.html',
+            styleUrls: ['./edit.component.css'],
             providers: [user_service_1.UserService, client_service_1.ClientService]
         })
-    ], AddComponent);
-    return AddComponent;
+    ], EditComponent);
+    return EditComponent;
 }());
-exports.AddComponent = AddComponent;
+exports.EditComponent = EditComponent;

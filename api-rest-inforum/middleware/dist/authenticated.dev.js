@@ -17,10 +17,12 @@ exports.authenticated = function (req, res, next) {
 
 
   var token = req.headers.authorization.replace(/['"]+/g, '');
+  console.log(token);
 
   try {
     //DECODIFICAR EL TOKEN
-    payload = jwt.decode(token, secret); //COMPROBAR SI EL TOKEN HA EXPIRADO 
+    payload = jwt.decode(token, secret);
+    console.log(payload); //COMPROBAR SI EL TOKEN HA EXPIRADO 
 
     if (payload.exp <= moment().unix()) {
       return res.status(404).send({

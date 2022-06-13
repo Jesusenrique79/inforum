@@ -25,7 +25,7 @@ var controller = {
     try {
       validate_name = !validator.isEmpty(params.name);
       validate_surname = !validator.isEmpty(params.surname);
-      validate_identification = !validator.isEmpty(params.idetification);
+      validate_identification = !validator.isEmpty(params.identification);
       validate_phone = !validator.isEmpty(params.phone);
       validate_status = !validator.isEmpty(params.status);
       validate_email = !validator.isEmpty(params.email) && validator.isEmail(params.email);
@@ -42,6 +42,7 @@ var controller = {
 
       client.name = params.name;
       client.surname = params.surname;
+      client.identification = params.identification;
       client.phone = params.phone;
       client.status = params.status;
       client.email = params.email;
@@ -190,7 +191,7 @@ var controller = {
     try {
       validate_name = !validator.isEmpty(params.name);
       validate_surname = !validator.isEmpty(params.surname);
-      validate_identification = !validator.isEmpty(params.idetification);
+      validate_identification = !validator.isEmpty(params.identification);
       validate_phone = !validator.isEmpty(params.phone);
       validate_status = !validator.isEmpty(params.status);
       validate_email = !validator.isEmpty(params.email) && validator.isEmail(params.email);
@@ -207,7 +208,7 @@ var controller = {
       var update = {
         name: params.name,
         surname: params.surname,
-        idetification: params.idetification,
+        identification: params.identification,
         phone: params.phone,
         status: params.status,
         email: params.email,

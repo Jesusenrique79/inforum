@@ -26,11 +26,11 @@ var Multimedia = mongoose.model('Multimedia', multimediaSchema); //CREAR SCHEMA 
 var ClientSchema = Schema({
   name: String,
   surname: String,
-  identification: Number,
-  phone: Number,
+  identification: String,
+  phone: String,
   email: String,
   address: String,
-  status: Boolean,
+  status: String,
   date: {
     type: Date,
     "default": Date.now

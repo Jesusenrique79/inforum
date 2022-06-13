@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { routing, appRoutingProviders } from './app.routing';
 import { AngularFileUploaderModule } from 'angular-file-uploader';
+import { MomentModule } from 'angular2-moment';
+
 
 import { PanelModule } from './panel/panel.module';
 
@@ -29,7 +31,8 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     HttpClientModule,
     routing,
     AngularFileUploaderModule,
-    PanelModule
+    PanelModule,
+    MomentModule
   ],
   providers: [
     appRoutingProviders

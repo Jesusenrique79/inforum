@@ -12,6 +12,7 @@ var common_1 = require("@angular/common");
 var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var panel_routing_module_1 = require("./panel-routing.module");
+var angular2_moment_1 = require("angular2-moment");
 var main_component_1 = require("./components/main/main.component");
 var add_component_1 = require("./components/add/add.component");
 var edit_component_1 = require("./components/edit/edit.component");
@@ -31,7 +32,8 @@ var PanelModule = /** @class */ (function () {
                 common_1.CommonModule,
                 forms_1.FormsModule,
                 http_1.HttpClientModule,
-                panel_routing_module_1.PanelRoutingModule
+                panel_routing_module_1.PanelRoutingModule,
+                angular2_moment_1.MomentModule
             ],
             exports: [
                 main_component_1.MainComponent,

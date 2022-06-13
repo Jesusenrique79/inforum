@@ -13,6 +13,7 @@ var forms_1 = require("@angular/forms");
 var http_1 = require("@angular/common/http");
 var app_routing_1 = require("./app.routing");
 var angular_file_uploader_1 = require("angular-file-uploader");
+var angular2_moment_1 = require("angular2-moment");
 var panel_module_1 = require("./panel/panel.module");
 var app_component_1 = require("./app.component");
 var register_component_1 = require("./components/register/register.component");
@@ -37,7 +38,8 @@ var AppModule = /** @class */ (function () {
                 http_1.HttpClientModule,
                 app_routing_1.routing,
                 angular_file_uploader_1.AngularFileUploaderModule,
-                panel_module_1.PanelModule
+                panel_module_1.PanelModule,
+                angular2_moment_1.MomentModule
             ],
             providers: [
                 app_routing_1.appRoutingProviders
