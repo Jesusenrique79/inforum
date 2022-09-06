@@ -1,66 +1,25 @@
-<div class="col-lg-12">
-    <h3>{{page_tittle}}</h3>
-    <hr>
+<section class="row g-0">
+    <div class="col-12">
+        <h5>{{page_tittle}}</h5>
+    </div>
+    <div class="listado col">
+        <ul class="list-group row" *ngFor="let client of clients content">
 
-    <table class="table table-hover">
-        <thead class="thead-default">
-            <tr>
-                <th>Nombre</th>
-                <th>Apellidos</th>
-                <th>Identificación</th>
-                <th>Teléfono</th>
-                <th>email</th>
-                <th>Dirección</th>
-                <th>Fecha</th>
-                <th>Estatus</th>
-                <th>Acciones</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let client of clients">
-                <td>{{client.name}}</td>
-                <td>{{client.surname}}</td>
-                <td>{{client.identification}}</td>
-                <td>{{client.phone}}</td>
-                <td>{{client.email}}</td>
-                <td>{{client.address}}</td>
-                <td>{{client.date | amFromUtc | amLocale: 'es' | amParse:'DD/MM/YYYY' | amDateFormat:'LL'}}</td>
-                <td>{{client.status}}</td>
-                <td>
-                    <a [routerLink]="['/panel/editar', client._id]" class="btn btn-sm btn-warning mr-2">Editar</a>
-
-                    <!-- Button to Open the Modal -->
-                    <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal" [attr.data-bs-target]="'#myModal'+client._id">
-                    Borrar
-                    </button>
-
-                    <!-- The Modal -->
-                    <div class="modal" id="{{'myModal'+client._id}}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h4 class="modal-title">¿Estás seguro de querer borrar este cliente?</h4>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    Vas a borrar el cliente {{client.name + ' ' + client.surname}}, para siempre...
-                                </div>
-
-                                <!-- Modal footer -->
-                                <div class="modal-footer">
-                                    <a type="button" (click)="deleteClient(client._id)" class="btn btn-danger" data-bs-dismiss="modal">Borrar</a>
-                                    <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
-                                </div>
-
-                            </div>
-                        </div>
+            <li class="listado list-group-item col g-0">
+                <div class="row">
+                    <div class="col-6">
+                        <p class="fw-bold">Nombre: <span class="list-group-span">{{client.name + ' ' + client.surname}}</span></p>
+                        <p class="fw-bold">Identificación: <span class="list-group-span">{{client.identification}}</span></p>
+                        <p class="fw-bold">Estatus: <span class="list-group-span">{{client.status}}</span></p>
                     </div>
-                </td>
-            </tr>
-        </tbody>
-    </table>
-</div>
+
+                    <div class="col-6 align-self-center d-flex justify-content-end">
+                        <button [routerLink]="['/panel/detallesdelcliente', client._id]" class="boton-naranja"><i class="bi bi-person-fill"></i>Ver Cliente</button>
+                    </div>
+                </div>
+
+            </li>
+        </ul>
+    </div>
+
+</section>

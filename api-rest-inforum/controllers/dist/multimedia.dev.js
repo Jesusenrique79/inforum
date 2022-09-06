@@ -192,7 +192,7 @@ var controller = {
           "$options": "i"
         }
       }]
-    }).sort([['date', 'descending']]).exec(function (err, clients) {
+    }).populate('user').sort([['date', 'descending']]).exec(function (err, clients) {
       if (err) {
         return res.status(500).send({
           status: 'error',

@@ -9,6 +9,7 @@
     <div class="alert alert-danger col-md-5 mt-3" *ngIf="status=='error'">
         Los cambios no se han realizado.
     </div>
+    
     <form class="col-md-5 ml-0 pl-0" #userEditForm="ngForm" (ngSubmit)="onSubmit(userEditForm)">
         <div class="form-group">
             <label for="name">Nombre</label>
@@ -25,11 +26,14 @@
             <input type="email" name="email" #email="ngModel" [(ngModel)]="user.email" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" />
             <small *ngIf="!email.valid && email.touched" class="ivalid-feedback d-block">El email no es valido</small>
         </div>
+        <!--
         <div class="form-group">
             <label for="avatar">Imagen</label>
             <angular-file-uploader #fileUpload1 [config]="afuConfig" [resetUpload]=resetVar (ApiResponse)="avatarUpload($event)">
             </angular-file-uploader>
         </div>
+        -->
+
         <input type="submit" value="Guardar" class="btn btn-success" [disabled]="userEditForm.invalid">
-    </form>
+    </form> 
 </div>

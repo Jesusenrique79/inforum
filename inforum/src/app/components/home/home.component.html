@@ -1,14 +1,84 @@
 <div class="col-lg-12">
+    <!--Menu Principal-->
+    <div class="row">
+
+        <nav class="navbar navbar-expand col-12">
+
+            <div class="container-fluid row">
+                <div class="col-12 col-sm-3">
+                    <img src="../assets/img/Full_Logo_Inforum.png" class="logo-header pointer navbar-brand" [routerLink]="['/inicio']">
+                </div>
+                <div class="collapse navbar-collapse col-12 col-sm-6" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="link-menu active" aria-current="page" [routerLink]="['/inicio']" routerLinkActive="router-link-active">Inicio</a>
+                        </li>
+                        <!--
+                        <li class="nav-item" *ngIf="identity">
+                            <a class="nav-link" [routerLink]="['/clientes']">Clientes</a>
+                        </li>-->
+                        <li class="nav-item" *ngIf="identity">
+                            <a class="link-menu" [routerLink]="['/panel/crear']">Agregar Cliente</a>
+                        </li>
+                        <li lass="nav-item">
+                            &nbsp;
+                        </li>
+                        <!--
+                        <li class="nav-item">
+                            <form class="d-flex" role="search" #searchForm="ngForm">
+                                <input class="form-control me-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" name="busqueda" #busqueda="ngModel" [(ngModel)]="search">
+                                <button class="btn btn-outline-success" type="submit" (click)="goSearch()">Buscar</button>
+                            </form>
+                        </li>-->
+                    </ul>
+
+                    <ul class="navbar-nav navbar-right col-12 col-sm-3">
+                        <!--
+                        <li class="nav-item" *ngIf="!identity">
+                            <a class="nav-link" [routerLink]="['/registro']">Registrar</a>
+                        </li>
+                        -->
+                        <li class="nav-item" *ngIf="!identity">
+                            <a class="link-menu" [routerLink]="['/login']">Login</a>
+                        </li>
+                        <!--
+                        <li class="nav-item" *ngIf="identity">
+                            <div class="avatar-mask">
+                                <img src="{{url + 'avatar/' + identity.image}}" class="avatar-nav">
+                            </div>
+                        </li>
+                        -->
+
+                        <li class="nav-item dropdown" *ngIf="identity">
+                            <a class="link-menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{identity.name + ' ' + identity.surname}}</a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" [routerLink]="[ '/panel']">Panel de Usuarios</a></li>
+                                <li><a class="dropdown-item" [routerLink]="[ '/perfil', identity._id]">Mi Perfil</a></li>
+                                <li><a class="dropdown-item" [routerLink]="[ '/ajustes']">Ajustes</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item pointer" (click)="logOut()">Cerrar Sesión</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
     <div class="jumbotron jumbotron-fluid text-center mt-5">
         <div class="container">
             <h1 class="display-4">{{page_tittle}}</h1>
             <p class="lead">Esto es una muestra, mientras desarrollamos la aplicación</p>
+            <!--
             <p>
                 <a class="btn btn-primary btn-lg mr-3" href="#">Ver clientes</a>
                 <a class="btn btn-success btn-lg mr-3" href="#">Ver compañeros</a>
                 <a class="btn btn-warning btn-lg mr-3" href="#">Añade un nuevo cliente</a>
 
             </p>
+            -->
         </div>
     </div>
 </div>

@@ -8,17 +8,40 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 exports.__esModule = true;
 exports.HomeComponent = void 0;
 var core_1 = require("@angular/core");
+var user_service_1 = require("../../services/user.service");
+var global_1 = require("../../services/global");
 var HomeComponent = /** @class */ (function () {
-    function HomeComponent() {
+    function HomeComponent(_userService, _router, _route) {
+        this._userService = _userService;
+        this._router = _router;
+        this._route = _route;
         this.page_tittle = 'Bienvenidos a Inforum';
+        this.identity = this._userService.getIdentity();
+        this.token = this._userService.getToken();
+        this.url = global_1.global.url;
     }
     HomeComponent.prototype.ngOnInit = function () {
+        console.log(this.identity);
+        console.log(this.token);
+    };
+    HomeComponent.prototype.ngDoCheck = function () {
+        this.identity = this._userService.getIdentity();
+    };
+    HomeComponent.prototype.logOut = function () {
+        localStorage.clear();
+        this.identity = null;
+        this.token = null;
+        this._router.navigate(['/inicio']);
+    };
+    HomeComponent.prototype.goSearch = function () {
+        this._router.navigate(['/panel/buscar', this.search]);
     };
     HomeComponent = __decorate([
         core_1.Component({
             selector: 'app-home',
             templateUrl: './home.component.html',
-            styleUrls: ['./home.component.css']
+            styleUrls: ['./home.component.css'],
+            providers: [user_service_1.UserService]
         })
     ], HomeComponent);
     return HomeComponent;

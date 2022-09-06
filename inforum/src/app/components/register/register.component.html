@@ -31,6 +31,7 @@
             <input type="password" name="password" #password="ngModel" [(ngModel)]="user.password" required class="form-control" />
             <small *ngIf="!password.valid && password.touched" class="ivalid-feedback d-block">La Contraseña no es valida</small>
         </div>
+        <br>
         <input type="submit" value="{{page_tittle}}" class="btn btn-success" [disabled]="registerForm.invalid">
     </form>
 </div>

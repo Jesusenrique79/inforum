@@ -1,3 +1,410 @@
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+@font-face {
+    font-family: 'League Spartan', sans-serif;
+    src: url(./assets/fonts/League_Spartan/static/LeagueSpartan-Regular.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: 'Roboto', sans-serif;
+    src: url(./assets/fonts/Roboto/Roboto-Regular.ttf) format(truetype);
+}
+
+@font-face {
+    font-family: 'Open Sans', sans-serif;
+    src: url(./assets/fonts/Open_Sans/static/OpenSans/OpenSans-Regular.ttf) format(truetype);
+}
+
+:root {
+    --fondo-panel: #f2f2f2;
+    --dark: #16191c;
+    --dark-x: #1e2126;
+    --sombra: rgba(0, 0, 0, .2);
+    --barraLateral: #262a34;
+    --light: #fff;
+    --gris-claro: #e8e8e8;
+    --naranja: #F9A02C;
+    --azul-cielo: #0480b9;
+    --azul-oscuro: #025aa5;
+    /*FUENTES*/
+    --LeagueSpartan: 'League Spartan';
+    --Roboto: 'Roboto';
+    --OpenSans: 'Open Sans';
+}
+
+.cuerpo-principal {
+    background: var(--fondo-panel);
+    font-family: var(--OpenSans);
+}
+
 .pointer {
     cursor: pointer;
+}
+
+h1 {
+    font-weight: bold;
+}
+
+h3,
+h5,
+h6 {
+    text-align: center;
+}
+
+
+/*---- ****** ---- BOTONES--- ******* ----*/
+
+.boton-azul {
+    background: var(--azul-cielo);
+    cursor: pointer;
+    color: var(--light);
+    font-family: var(--OpenSans);
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 10px;
+    width: 200px;
+    border-radius: 3px;
+    transition: .3s ease all;
+}
+
+.boton-azul:hover {
+    background: var(--azul-oscuro);
+}
+
+.bi {
+    margin-right: 10px;
+}
+
+.boton-naranja {
+    background: var(--naranja);
+    cursor: pointer;
+    color: var(--light);
+    font-family: var(--OpenSans);
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    display: inline-block;
+    padding: 10px;
+    width: 180px;
+    border-radius: 3px;
+    transition: .3s ease all;
+}
+
+.boton-naranja:hover {
+    background: var(--azul-oscuro);
+}
+
+svg {
+    margin-right: 10px;
+}
+
+.icono {
+    margin-right: 10px;
+    color: var(--light);
+}
+
+
+/*---- ****** ---- FIN DE BOTONES---- ******* ----*/
+
+.sombra {
+    box-shadow: 0px 2px 2px 0px var(--sombra);
+}
+
+.titulo {
+    background: var(--light);
+    height: 50px;
+    width: auto;
+}
+
+
+/*---- ****** ---- LOGIN---- ******* ----*/
+
+.form-label {
+    font-weight: bold;
+}
+
+.row-letras-login {
+    font-family: var(--OpenSans);
+    font-weight: 300;
+    color: var(--light);
+}
+
+.bg-dark {
+    background-color: var(--dark) !important;
+}
+
+.bg-dark-x {
+    background-color: var(--dark-x)!important;
+}
+
+.bg-dark-x:hover {
+    background-color: var(--light)!important;
+}
+
+.form-control,
+.btn-login {
+    min-height: 3.125rem;
+    line-height: initial;
+}
+
+.img-1 {
+    background-image: url('./assets/img/img1.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-2 {
+    background-image: url('./assets/img/img2.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.img-3 {
+    background-image: url('./assets/img/img3.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+/*---- ****** ---- FIN DE LOGIN---- ******* ----*/
+
+
+/*---- ****** ---- MENU PRINCIPAL---- ******* ----*/
+
+.navbar {
+    background: var(--light);
+    border-bottom: 5px solid var(--naranja);
+}
+
+.link-menu {
+    color: var(--azul-cielo);
+    font-size: 16px;
+    text-decoration: none;
+    margin-right: 1rem;
+    font-weight: 500;
+}
+
+.link-menu:hover {
+    color: var(--naranja);
+}
+
+.titulo-panel {
+    margin-top: 20px;
+}
+
+.logo-header {
+    width: 250px;
+}
+
+.avatar_mask {
+    width: 40px;
+    height: 40px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+
+.avatar_mask img {
+    height: 40px;
+}
+
+.avatar_mask_list {
+    width: 60px;
+    height: 60px;
+    border-radius: 900px;
+    overflow: hidden;
+}
+
+.avatar_mask_list img {
+    height: 60px;
+}
+
+.btn-editar {
+    margin-right: 5px;
+}
+
+
+/* Formulario */
+
+form {
+    padding: 20px;
+}
+
+
+/* Tabla */
+
+.cabecera_tabla {
+    text-align: center;
+}
+
+.table {
+    font-size: 1rem;
+    text-align: center;
+}
+
+
+/*Perfil de Usuario*/
+
+.client-box {
+    border: 1px solid var(--gris-claro);
+    height: 500px;
+    padding: 40px;
+}
+
+.label-detail {
+    margin-right: 5px;
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/*---- ****** ---- BARRA LATERAL---- ******* ----*/
+
+.barra-lateral {
+    background: var(--barraLateral);
+    color: var(--fondo-panel);
+    min-width: 300px;
+    min-height: 100vh;
+}
+
+.barra-lateral a {
+    color: var(--light);
+    text-decoration: none;
+}
+
+
+/*---- LOGO DE LA BARRA LATERAL----*/
+
+.barra-lateral .logo {
+    background: var(--azul-cielo);
+}
+
+.barra-lateral .logo h2 {
+    font-size: 30px;
+    font-family: var(--Roboto);
+    text-align: center;
+    font-weight: 300;
+}
+
+
+/*---- MENU DE LA BARRA LATERAL-----*/
+
+.barra-lateral .menu a {
+    display: block;
+    padding: 20px;
+    font-family: var(--OpenSans);
+    font-weight: 500;
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+}
+
+.barra-lateral .menu a:hover {
+    background: var(--naranja);
+    color: var(--barraLateral);
+}
+
+.barra-lateral .menu a svg {
+    margin-right: 10px;
+}
+
+
+/*----****** MEQUERIES ******----*/
+
+
+/*---- Dispositivo xs----*/
+
+@media screen and (max-width: 320px) {}
+
+
+/*---- Dispositivo sm----*/
+
+@media screen and (max-width: 576px) {
+    .barra-lateral {
+        min-height: auto;
+    }
+}
+
+
+/*---- Dispositivo sm----*/
+
+@media screen and (max-width: 768px) {}
+
+
+/*---- Dispositivo lg----*/
+
+@media screen and (max-width: 992px) {}
+
+
+/*---- Dispositivo xl----*/
+
+@media screen and (max-width: 1200px) {
+    .barra-lateral {
+        min-width: auto;
+    }
+    .barra-lateral .logo {
+        display: none;
+    }
+    .barra-lateral .menu a svg {
+        display: none;
+    }
+}
+
+
+/*---- Dispositivo xxl----*/
+
+@media screen and (max-width: 1400px) {}
+
+
+/*---- ****** ---- FIN BARRA LATERAL---- ******* ----*/
+
+
+/*---- ****** ---- LIST GROUP---- ******* ----*/
+
+.list-group-span {
+    font-weight: normal;
+}
+
+
+/*---- ****** ---- MAIN ---- ******* ----*/
+
+.main {
+    margin: 20px;
+}
+
+
+/*---- ****** ----FORMULARIO DE REGISTRO DE USUARIOS Y CLIENTES---- ******* ----*/
+
+.form_registro_user,
+.form_registro_clientes {
+    line-height: 2.5rem;
+}
+
+
+/*---- ****** ---- USUARIOS---- ******* ----*/
+
+.lista-user {
+    padding: 2rem;
+}
+
+.user-name {
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--barraLateral);
+}
+
+.user-name:hover {
+    color: var(--azul-oscuro);
+}
+
+.user-rol {
+    text-decoration: none;
+    font-weight: 700;
+    color: var(--azul-oscuro);
+}
+
+.user-rol:hover {
+    color: var(--barraLateral);
 }

@@ -8,6 +8,10 @@ import { MomentModule } from 'angular2-moment';
 
 
 import { PanelModule } from './panel/panel.module';
+import { UserService } from './services/user.service';
+import { UserGuard } from './services/user.guard';
+import { NoIdentityGuard } from './services/no.identity.guard';
+
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -15,6 +19,9 @@ import { LoginComponent } from './components/login/login.component';
 import { from } from 'rxjs';
 import { HomeComponent } from './components/home/home.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { ClientsComponent } from './components/clients/clients.component';
+import { ClientDetailComponent } from './components/client-detail/client-detail.component';
+
 
 
 @NgModule({
@@ -23,7 +30,10 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     RegisterComponent,
     LoginComponent,
     HomeComponent,
-    UserEditComponent
+    UserEditComponent,
+    ClientsComponent,
+    ClientDetailComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -35,7 +45,10 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     MomentModule
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    UserGuard,
+    UserService,
+    NoIdentityGuard
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

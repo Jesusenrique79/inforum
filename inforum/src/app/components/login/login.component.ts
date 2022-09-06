@@ -42,6 +42,7 @@ export class LoginComponent implements OnInit {
                    response => {
                      if (response.token) { 
                        //Guardar el token del usuario en una propiedad
+                       console.log(response);
                        this.token = response.token;
                        localStorage.setItem('token', this.token);
                        this.status = 'success';

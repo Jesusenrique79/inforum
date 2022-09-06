@@ -59,7 +59,7 @@ let controller = {
                 if (err || !clientStored) {
                     return res.status(404).send({
                         status: 'Error',
-                        message: 'El tema no se ha guardado'
+                        message: 'El cliente no se ha guardado'
                     });
                 }
                 //Devolver una respuesta

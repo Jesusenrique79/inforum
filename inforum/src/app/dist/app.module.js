@@ -15,11 +15,16 @@ var app_routing_1 = require("./app.routing");
 var angular_file_uploader_1 = require("angular-file-uploader");
 var angular2_moment_1 = require("angular2-moment");
 var panel_module_1 = require("./panel/panel.module");
+var user_service_1 = require("./services/user.service");
+var user_guard_1 = require("./services/user.guard");
+var no_identity_guard_1 = require("./services/no.identity.guard");
 var app_component_1 = require("./app.component");
 var register_component_1 = require("./components/register/register.component");
 var login_component_1 = require("./components/login/login.component");
 var home_component_1 = require("./components/home/home.component");
 var user_edit_component_1 = require("./components/user-edit/user-edit.component");
+var clients_component_1 = require("./components/clients/clients.component");
+var client_detail_component_1 = require("./components/client-detail/client-detail.component");
 var AppModule = /** @class */ (function () {
     function AppModule() {
     }
@@ -30,7 +35,9 @@ var AppModule = /** @class */ (function () {
                 register_component_1.RegisterComponent,
                 login_component_1.LoginComponent,
                 home_component_1.HomeComponent,
-                user_edit_component_1.UserEditComponent
+                user_edit_component_1.UserEditComponent,
+                clients_component_1.ClientsComponent,
+                client_detail_component_1.ClientDetailComponent,
             ],
             imports: [
                 platform_browser_1.BrowserModule,
@@ -42,7 +49,10 @@ var AppModule = /** @class */ (function () {
                 angular2_moment_1.MomentModule
             ],
             providers: [
-                app_routing_1.appRoutingProviders
+                app_routing_1.appRoutingProviders,
+                user_guard_1.UserGuard,
+                user_service_1.UserService,
+                no_identity_guard_1.NoIdentityGuard
             ],
             bootstrap: [app_component_1.AppComponent],
             schemas: [core_1.CUSTOM_ELEMENTS_SCHEMA]

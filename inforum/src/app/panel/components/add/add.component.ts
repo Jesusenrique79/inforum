@@ -17,6 +17,7 @@ export class AddComponent implements OnInit {
   public identity;
   public token;
   public status;
+  public is_edit;
 
   constructor(
     private _route: ActivatedRoute,
@@ -28,21 +29,20 @@ export class AddComponent implements OnInit {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
     this.client = new Client('', '', '', '', '', '', '', '', '', this.identity._id, null);
+    this.is_edit = false;
   }
 
   ngOnInit() {
-    
+    console.log(this._clientService.prueba());
   }
 
    onSubmit(form) {
-    console.log(this.client);
-    console.log(this.token);
     this._clientService.addClient(this.token, this.client).subscribe(
       response => {
         if (response.client) {
           this.status = 'success';
           this.client = response.client;
-          this._router.navigate (['/panel']);
+          this._router.navigate(['/panel']);
         } else {
           this.status = 'error';
         }

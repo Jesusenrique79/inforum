@@ -1,6 +1,7 @@
 import { Component, OnInit, DoCheck } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { UserService } from './services/user.service';
+import { global } from './services/global';
 
 
 @Component({
@@ -13,6 +14,9 @@ export class AppComponent implements OnInit, DoCheck {
   public title = 'inforum';
   public identity;
   public token;
+  public url;
+  public search;
+
 
   constructor(
     private _userService: UserService,
@@ -21,9 +25,11 @@ export class AppComponent implements OnInit, DoCheck {
   ) {
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
+    this.url = global.url;
   }
   ngOnInit() {
-      
+    console.log(this.identity);
+    console.log(this.token);
   }
 
   ngDoCheck() {
@@ -35,5 +41,9 @@ export class AppComponent implements OnInit, DoCheck {
     this.identity = null;
     this.token = null;
     this._router.navigate(['/inicio']);
+  }
+
+  goSearch() {
+    this._router.navigate(['/panel/buscar', this.search]);
   }
 }

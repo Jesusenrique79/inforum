@@ -194,6 +194,7 @@ let controller = {
                     { "email": { "$regex": searchString, "$options": "i" } },
                 ]
             })
+            .populate('user')
             .sort([
                 ['date', 'descending']
             ])

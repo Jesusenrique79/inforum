@@ -1,20 +1,69 @@
-<div class="col-lg-4 float-left mt-3">
-    <h3>Panel de Usuario</h3>
-    <hr>
+<div class="cuerpo-principal row">
+    <aside class="barra-lateral col-12 col-sm-auto p-0">
+        <div class="logo">
+            <h2 class="py-4 m-0">Dashboard</h2>
+        </div>
+        <nav class="menu d-flex d-sm-block justify-content-center flex-wrap">
+            <a class="active" aria-current="page" [routerLink]="['inicio']">
+                <i class="bi bi-house-door-fill"></i>Inicio
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['todoslosclientes']">
+                <i class="bi bi-briefcase-fill"></i>Todos los Clientes
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['perfildeclientes']">
+                <i class="bi bi-person-circle"></i> Perfiles de Clientes
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['registrodeusuario']">
+                <i class="bi bi-person-fill"></i> Registrar Usuario
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['listado']">
+                <i class="bi bi-bag-fill"></i> Mis Clientes
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['crear']">
+                <i class="bi bi-person-plus-fill"></i>Agregar Cliente
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['/panel/usuarios']">
+                <i class="bi bi-people-fill"></i> Usuarios
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['/ajustes']">
+                <i class="bi bi-gear-fill"></i> Ajustes
+            </a>
+            <a class="active" aria-current="page" [routerLink]="['/panel/usuarios']" (click)="logOut()">
+                <i class="bi bi-box-arrow-right"></i> Cerrar Sesión
+            </a>
+        </nav>
+    </aside>
 
-    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-        <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true" [routerLink]="['listado']">Clientes</a>
-        <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false" [routerLink]="['crear']">Crear Cliente</a>
-        <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false" [routerLink]="['/ajustes']">Ajustes</a>
-    </div>
-    <div class="tab-content" id="v-pills-tabContent">
-        <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">...</div>
-        <div class="tab-pane fade" id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">...</div>
-    </div>
-</div>
+    <main class="main col">
+        <div class="row">
+            <!--
+            <div class="col">
+                <ul class="navbar-nav navbar-right col-12 col-sm-3">
 
-<div class="col-lg-4 float-right mt-3">
-    <router-outlet></router-outlet>
+                    <li class="nav-item dropdown" *ngIf="identity">
+                        <a class="link-menu dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{identity.name + ' ' + identity.surname}}</a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" [routerLink]="['/panel']">Panel de Usuarios</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/perfil', identity._id]">Mi Perfil</a></li>
+                            <li><a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item pointer" (click)="logOut()">Cerrar Sesión</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>-->
+            <div class="col-12 mb-2 search">
+                <form class="d-flex" role="search" #searchForm="ngForm">
+                    <input class="form-control me-2" type="search" placeholder="¿Qué estás buscando?" aria-label="Search" name="busqueda" #busqueda="ngModel" [(ngModel)]="search">
+                    <button class="boton-azul" type="submit" (click)="goSearch()"><i class="bi bi-search"></i>Buscar
+                </button>
+                </form>
+            </div>
+        </div>
+        <div class="col-12 col-lg-12">
+            <router-outlet></router-outlet>
+        </div>
+    </main>
 </div>

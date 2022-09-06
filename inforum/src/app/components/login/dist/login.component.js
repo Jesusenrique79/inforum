@@ -32,6 +32,7 @@ var LoginComponent = /** @class */ (function () {
                 _this._userService.signup(_this.user, true).subscribe(function (response) {
                     if (response.token) {
                         //Guardar el token del usuario en una propiedad
+                        console.log(response);
                         _this.token = response.token;
                         localStorage.setItem('token', _this.token);
                         _this.status = 'success';

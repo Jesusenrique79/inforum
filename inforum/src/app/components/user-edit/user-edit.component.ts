@@ -30,6 +30,7 @@ export class UserEditComponent implements OnInit {
     this.user = this.identity;
     this.url = global.url;
     
+    /*
     this.afuConfig = {
       multiple: false,//un solo archivo
       formatsAllowed: '.jpg, .jpeg, .png, .gif',//formatos permitidos
@@ -66,6 +67,7 @@ export class UserEditComponent implements OnInit {
     const dataObj = data.body;
     this.user.image = dataObj.user.image;
     console.log(this.user);
+    */
     }
 
     ngOnInit() {

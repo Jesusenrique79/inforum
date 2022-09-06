@@ -1,0 +1,63 @@
+<div class="col-lg-12 client-box mt-3" *ngIf="client">
+    <div class="row row-cols-2 g-0 client-data">
+        <div class="col">
+            <h2>{{client.name + ' ' + client.surname}}</h2>
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Estatus:</p>
+                <p class="col-auto">{{client.status}}</p>
+            </div>
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Agregado por:</p>
+                <p class="col col-auto">{{client.user.name}}</p>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Fecha:</p>
+                <p class="col-auto">{{client.date | amFromUtc | amLocale: 'es' | amParse:'DD/MM/YYYY' | amDateFormat:'LL'}}</p>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="row g-0 client-content">
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Identificación:</p>
+                <p class="col-auto">{{client.identification}}</p>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Telefono:</p>
+                <p class="col-auto">{{client.phone}}</p>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Email:</p>
+                <p class="col-auto">{{client.email}}</p>
+            </div>
+
+        </div>
+        <div class="col">
+            <div class="row g-0">
+                <p class="label-detail col-auto">Dirección:</p>
+                <p class="col-auto">{{client.address}}</p>
+            </div>
+
+        </div>
+
+    </div>
+    <div id="client-multimedia" class="multimedia mt-2" *ngIf="client.muktimedia">
+        {{client.multimedia}}
+    </div>
+
+</div>

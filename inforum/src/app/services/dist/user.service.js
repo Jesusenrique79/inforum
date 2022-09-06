@@ -29,7 +29,7 @@ var UserService = /** @class */ (function () {
     UserService.prototype.signup = function (user, gettoken) {
         if (gettoken === void 0) { gettoken = null; }
         //Comprobar si llega el gettoken
-        if (gettoken != null) {
+        if (gettoken !== null) {
             user.gettoken = gettoken;
         }
         var params = JSON.stringify(user);
@@ -38,7 +38,7 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.getIdentity = function () {
         var identity = JSON.parse(localStorage.getItem('identity'));
-        if (identity && identity != null && identity != undefined && identity != "undefined") {
+        if (identity && identity !== null && identity !== undefined && identity !== 'undefined') {
             this.identity = identity;
         }
         else {
@@ -48,7 +48,7 @@ var UserService = /** @class */ (function () {
     };
     UserService.prototype.getToken = function () {
         var token = localStorage.getItem('token');
-        if (token && token != null && token != undefined && token != "undefined") {
+        if (token && token !== null && token !== undefined && token !== 'undefined') {
             this.token = token;
         }
         else {
@@ -61,6 +61,12 @@ var UserService = /** @class */ (function () {
         var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json')
             .set('Authorization', this.getToken());
         return this._http.put(this.url + 'update', params, { headers: headers });
+    };
+    UserService.prototype.getUsers = function () {
+        return this._http.get(this.url + 'users');
+    };
+    UserService.prototype.getUser = function (userId) {
+        return this._http.get(this.url + 'user/' + userId);
     };
     UserService = __decorate([
         core_1.Injectable()

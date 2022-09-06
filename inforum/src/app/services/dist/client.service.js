@@ -17,6 +17,9 @@ var ClientService = /** @class */ (function () {
         this._http = _http;
         this.url = global_1.global.url;
     }
+    ClientService.prototype.prueba = function () {
+        return 'Bievenidos a Inforum';
+    };
     ClientService.prototype.addClient = function (token, client) {
         var params = JSON.stringify(client);
         var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json')
@@ -27,14 +30,31 @@ var ClientService = /** @class */ (function () {
         var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json');
         return this._http.get(this.url + 'user-clients/' + userId, { headers: headers });
     };
-    ClientService.prototype.getClient = function (id) {
-        return this._http.get(this.url + 'client/' + id);
-    };
+    /*
+        getClient(id):Observable<any> {
+            return this._http.get(this.url + 'client/' + id);
+        }
+    */
     ClientService.prototype.update = function (token, id, client) {
         var params = JSON.stringify(client);
         var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json')
             .set('Authorization', token);
-        return this._http.put(this.url + 'clients/' + id, params, { headers: headers });
+        return this._http.put(this.url + 'client/' + id, params, { headers: headers });
+    };
+    ClientService.prototype["delete"] = function (token, id) {
+        var headers = new http_1.HttpHeaders().set('Content-Type', 'application/json')
+            .set('Authorization', token);
+        return this._http["delete"](this.url + 'client/' + id, { headers: headers });
+    };
+    ClientService.prototype.getClients = function (page) {
+        if (page === void 0) { page = 1; }
+        return this._http.get(this.url + 'clients/' + page);
+    };
+    ClientService.prototype.getClient = function (id) {
+        return this._http.get(this.url + 'client/' + id);
+    };
+    ClientService.prototype.search = function (searchString) {
+        return this._http.get(this.url + 'search/' + searchString);
     };
     ClientService = __decorate([
         core_1.Injectable()

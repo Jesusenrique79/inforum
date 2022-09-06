@@ -17,6 +17,15 @@ var main_component_1 = require("./components/main/main.component");
 var add_component_1 = require("./components/add/add.component");
 var edit_component_1 = require("./components/edit/edit.component");
 var list_component_1 = require("./components/list/list.component");
+var all_customers_component_1 = require("./components/all-customers/all-customers.component");
+var customers_component_1 = require("./components/customers/customers.component");
+var customer_detail_component_1 = require("./components/customer-detail/customer-detail.component");
+var register_user_component_1 = require("./components/register-user/register-user.component");
+var users_component_1 = require("./components/users/users.component");
+var profile_component_1 = require("./components/profile/profile.component");
+var search_component_1 = require("./components/search/search.component");
+var user_service_1 = require("../services/user.service");
+var user_guard_1 = require("../services/user.guard");
 var PanelModule = /** @class */ (function () {
     function PanelModule() {
     }
@@ -26,7 +35,14 @@ var PanelModule = /** @class */ (function () {
                 main_component_1.MainComponent,
                 add_component_1.AddComponent,
                 edit_component_1.EditComponent,
-                list_component_1.ListComponent
+                list_component_1.ListComponent,
+                all_customers_component_1.AllCustomersComponent,
+                customers_component_1.CustomersComponent,
+                customer_detail_component_1.CustomerDetailComponent,
+                users_component_1.UsersComponent,
+                profile_component_1.ProfileComponent,
+                search_component_1.SearchComponent,
+                register_user_component_1.RegisterUserComponent
             ],
             imports: [
                 common_1.CommonModule,
@@ -39,9 +55,19 @@ var PanelModule = /** @class */ (function () {
                 main_component_1.MainComponent,
                 add_component_1.AddComponent,
                 edit_component_1.EditComponent,
-                list_component_1.ListComponent
+                list_component_1.ListComponent,
+                all_customers_component_1.AllCustomersComponent,
+                customers_component_1.CustomersComponent,
+                customer_detail_component_1.CustomerDetailComponent,
+                users_component_1.UsersComponent,
+                profile_component_1.ProfileComponent,
+                search_component_1.SearchComponent,
+                register_user_component_1.RegisterUserComponent
             ],
-            providers: []
+            providers: [
+                user_service_1.UserService,
+                user_guard_1.UserGuard
+            ]
         })
     ], PanelModule);
     return PanelModule;

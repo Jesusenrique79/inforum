@@ -21,13 +21,13 @@ var AddComponent = /** @class */ (function () {
         this.identity = this._userService.getIdentity();
         this.token = this._userService.getToken();
         this.client = new client_1.Client('', '', '', '', '', '', '', '', '', this.identity._id, null);
+        this.is_edit = false;
     }
     AddComponent.prototype.ngOnInit = function () {
+        console.log(this._clientService.prueba());
     };
     AddComponent.prototype.onSubmit = function (form) {
         var _this = this;
-        console.log(this.client);
-        console.log(this.token);
         this._clientService.addClient(this.token, this.client).subscribe(function (response) {
             if (response.client) {
                 _this.status = 'success';
